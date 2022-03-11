@@ -1,6 +1,4 @@
 package com.megafact.model;
-
-import com.sun.tools.javac.comp.Resolve;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +14,5 @@ import javax.persistence.Table;
 public class Requisito {
 @Id
     private long id;
+
 }
