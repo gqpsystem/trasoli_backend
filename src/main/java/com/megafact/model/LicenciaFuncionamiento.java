@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -45,6 +46,12 @@ public class LicenciaFuncionamiento {
 
     @Column(name = "num_expediente", nullable = false, length = 20)
     private String numExpediente;
+
+    @Column(name = "hora_cierre_negocio", nullable = false)
+    private LocalTime horaAperturaNegocio;
+
+    @Column(name = "hora_apertura_negocio", nullable = false)
+    private LocalTime horaCierreNegocio;
 
     @Column(name = "observaciones", nullable = false, length = 200)
     private String observaciones;
