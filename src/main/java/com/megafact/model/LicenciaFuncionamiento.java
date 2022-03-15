@@ -48,10 +48,10 @@ public class LicenciaFuncionamiento {
     private String numExpediente;
 
     @Column(name = "hora_apertura_negocio", nullable = false)
-    private LocalTime horaCierreNegocio;
+    private LocalTime horaAperturaNegocio;
 
     @Column(name = "hora_cierre_negocio", nullable = false)
-    private LocalTime horaAperturaNegocio;
+    private LocalTime horaCierreNegocio;
 
     @Column(name = "observaciones", nullable = false, length = 200)
     private String observaciones;
