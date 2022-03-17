@@ -19,16 +19,20 @@ public class Solicitud {
     @Column(name = "num_expediente",nullable = false,length = 10)
     private String num_expediente;
 
+    @Column(name = "fecha_recepcion",nullable = false)
     private Date fecha_recepcion;
 
+    @Column(name = "estado",nullable = false)
     private boolean estado;
 
     @Column(name = "asunto",nullable = false,length = 50)
     private String asunto;
 
-    private long id_empresa;
+    @ManyToMany
+    @JoinColumn(name = "id_empresa", nullable = false)
+    private Empresa empresa;
 
-    private long id_licencia;
-
-
+    @OneToOne
+    @JoinColumn(name = "id_licencia", nullable = false)
+    private Licencia licencia;
 }
