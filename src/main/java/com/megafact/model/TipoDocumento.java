@@ -16,10 +16,13 @@ public class TipoDocumento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idTipoDocumento;
 
-    @Column(name = "cod_tipo_documento",nullable = false,length = 10)
+    @Column(name = "codTipoDocumento", nullable = true, length = 20)
     private String codTipoDocumento;
 
-    @Column(name = "denominacion",nullable = false,length = 50)
+    @Column(name = "abreviatura", nullable = true, length = 20)
+    private String abreviatura;
+
+    @Column(name = "denominacion", nullable = true, length = 50)
     private String denominacion;
 
 }
