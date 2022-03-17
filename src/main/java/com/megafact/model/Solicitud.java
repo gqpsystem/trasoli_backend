@@ -28,9 +28,9 @@ public class Solicitud {
     @Column(name = "asunto",nullable = false,length = 50)
     private String asunto;
 
-    @ManyToMany
-    @JoinColumn(name = "id_empresa", nullable = false)
-    private Empresa empresa;
+    @ManyToOne
+    @JoinColumn(name = "id_establecimiento", nullable = false)
+    private Establecimiento establecimiento;
 
     @OneToOne
     @JoinColumn(name = "id_licencia", nullable = false)
