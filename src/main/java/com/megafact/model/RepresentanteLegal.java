@@ -11,7 +11,7 @@ import javax.persistence.*;
         name = "representante_legal"
 )
 
-public class Representante_Legal {
+public class RepresentanteLegal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer idRepresentanteLegal;
