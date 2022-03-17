@@ -32,7 +32,11 @@ public class Solicitud {
     @JoinColumn(name = "id_establecimiento", nullable = false)
     private Establecimiento establecimiento;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_licencia", nullable = false)
     private Licencia licencia;
+
+    @OneToOne
+    @JoinColumn(name = "id_tipo_tramite", nullable = false)
+    private Tipo_tramite tipo_tramite;
 }
