@@ -25,4 +25,12 @@ public class Licencia {
 
     @Column(name = "id_requisicto", nullable = false, length = 8)
     private long id_requisicto;
+
+   
+    @OneToMany( targetEntity=Solicitud.class )
+     private long id_solicitud;
+
+   @OneToMany( targetEntity=LicenciaRequisito.class )
+     private long id_licencia_requisito;
+
 }
