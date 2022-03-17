@@ -10,6 +10,8 @@ public class Personal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPersonal;
 
-
+    @OneToOne
+    @JoinColumn(name = "id_persona", nullable = false)
+    private Persona persona;
 
 }
