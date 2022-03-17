@@ -2,6 +2,7 @@ package com.megafact.model;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "personal")
 public class Personal {
 
@@ -9,10 +10,6 @@ public class Personal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPersonal;
 
-    @Column(name = "nombrePersonal",nullable = false,length = 100)
-    private String nombreCliente;
 
-    @Column(name = "apellidosPersonal",nullable = false,length = 100)
-    private String apellidosPersonal;
 
 }
