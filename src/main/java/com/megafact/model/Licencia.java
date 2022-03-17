@@ -1,11 +1,19 @@
 package com.megafact.model;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Date;
-
-import javax.persistence.*;
 
 @Getter
 @Setter
@@ -23,14 +31,23 @@ public class Licencia {
     @Column(name = "resolucion", nullable = false, length = 20)
     private String resolucion;
 
-    @Column(name = "id_requisicto", nullable = false, length = 8)
-    private long id_requisicto;
-
-   
+       
     @OneToMany( targetEntity=Solicitud.class )
-     private long id_solicitud;
+     private List solicitudList;
+
+     public List getSolicitudlist() 
+     {
+        return solicitudList;
+     }
+  
+     public void setSolicitudlist(List solicitudList) 
+     {
+        this.solicitudList = solicitudList;
+     }
 
    @OneToMany( targetEntity=LicenciaRequisito.class )
-     private long id_licencia_requisito;
+     private long licenciaRequisitoList;
+
+
 
 }
