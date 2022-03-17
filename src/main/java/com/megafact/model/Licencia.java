@@ -33,20 +33,10 @@ public class Licencia {
 
        
     @OneToMany( targetEntity=Solicitud.class )
-     private List solicitudList;
-
-     public List getSolicitudlist() 
-     {
-        return solicitudList;
-     }
-  
-     public void setSolicitudlist(List solicitudList) 
-     {
-        this.solicitudList = solicitudList;
-     }
+     private Solicitud solicitud;
 
    @OneToMany( targetEntity=LicenciaRequisito.class )
-     private long licenciaRequisitoList;
+     private LicenciaRequisito licenciaRequisito;
 
 
 
