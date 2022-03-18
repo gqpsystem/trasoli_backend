@@ -36,4 +36,5 @@ public class Empresa {
     @Column(name = "id_giro_negocio", nullable = false, length = 11)
     private GiroNegocio giroNegocio;
 
+
 }
