@@ -12,6 +12,7 @@ import javax.persistence.*;
 )
 
 public class RepresentanteLegal {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRepresentanteLegal;
