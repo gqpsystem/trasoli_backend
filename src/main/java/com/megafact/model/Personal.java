@@ -20,6 +20,4 @@ public class Personal {
     @JoinColumn(name = "id_persona", nullable = false)
     private Persona persona;
 
-    private String nombre;
-
 }
