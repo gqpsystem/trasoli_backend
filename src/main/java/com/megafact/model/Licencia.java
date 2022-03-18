@@ -1,39 +1,38 @@
 package com.megafact.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Licencia")
+@Table(name = "licencia")
 public class Licencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_licencia", unique = true, nullable = false)
-    private long idlicencia;
+    @Column(name = "id_licencia", nullable = false, length = 11)
+    private long idLicencia; //no acepta null
 
-    @Column(name = "fecha", nullable = false)
-    private Date fecha;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private LocalDate fechaEmision;
 
-    @Column(name = "resolucion", nullable = false, length = 20)
-    private String resolucion;
+    @Column(name = "numero_resolucion", nullable = false, length = 50)
+    private String numeroResolucion;
 
-    
-    @OneToMany( targetEntity=Solicitud.class )
-    @JoinColumn(name = "id_solicitud", nullable = false)   
-     private Solicitud solicitud;
+    @OneToMany(mappedBy = "licencia", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<LicenciaRequisito> licenciaRequisitos;
 
-    @OneToMany( targetEntity=LicenciaRequisito.class )
-    @JoinColumn(name = "id_licencia_requisito", nullable = false)   
-     private LicenciaRequisito licenciaRequisito;
 
-    public Long getIdLicencia() {
-        return idlicencia;
-    }
 
 }

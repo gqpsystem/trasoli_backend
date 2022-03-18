@@ -1,12 +1,8 @@
 package com.megafact.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,4 +16,15 @@ public class LicenciaRequisito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_licencia_requisito", unique = true, nullable = false)
     private long idLicenciaRequisito;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_licencia", nullable = false)
+    private Licencia licencia;
+
+    @ManyToOne
+    @JoinColumn(name = "id_requisito", nullable = false)
+    private Requisito requisito;
+
+
 }

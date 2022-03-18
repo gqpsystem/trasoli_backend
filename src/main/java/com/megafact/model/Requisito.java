@@ -16,21 +16,20 @@ import lombok.Setter;
 @Table(name = "requisito")
 public class Requisito {
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_requisito", unique = true, nullable = false)
+    @Column(name = "id_requisito", nullable = false, length = 11)
     private long idRequisito;
 
-    @Column(name = "ficha_ruc",nullable = false,length = 12)
+    @Column(name = "ficha_ruc", nullable = true, length = 12)
     private String fichaRuc;
 
-    @Column(name = "certificado_defensacivil",nullable = false,length = 50)
+    @Column(name = "certificado_defensa_civil", nullable = false, length = 50)
     private String certificadoDefensaCivil;
-    
-    @Column(name = "numero_recibo",nullable = false,length = 12)
+
+    @Column(name = "numero_recibo", nullable = false, unique = true, length = 12)
     private String numeroRecibo;
-    
-    @Column(name = "estado_requisito",nullable = false,length = 12)
-    private Boolean estadoRequisito;
-	
+
+    @Column(name = "estado_requisito", nullable = false)
+    private boolean estadoRequisito;
 }
