@@ -33,7 +33,8 @@ public class Empresa {
     @Column(name = "id_representante", nullable = false, length = 15)
     private Long id_representante;
 
-    @Column(name = "id_giro_negocio", nullable = false, length = 11)
+    @OneToOne
+    @JoinColumn(name = "id_giro_negocio", nullable = false)
     private GiroNegocio giroNegocio;
 
 

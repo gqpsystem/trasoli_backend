@@ -20,7 +20,7 @@ public class RepresentanteLegal {
     @Column(name = "num_partida", length = 50)
     private String num_partida;
 
-    @OneToOne
-            @JoinColumn(name = "id_persona", nullable = false )
+    @OneToOne(optional = false)
+    @JoinColumn(name = "id_persona", nullable = false )
     private Persona persona;
 }
