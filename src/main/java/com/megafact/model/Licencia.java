@@ -14,7 +14,8 @@ public class Licencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_licencia;
+    @Column(name = "id_licencia", unique = true, nullable = false)
+    private long idlicencia;
 
     @Column(name = "fecha", nullable = false)
     private Date fecha;
@@ -32,7 +33,7 @@ public class Licencia {
      private LicenciaRequisito licenciaRequisito;
 
     public Long getIdLicencia() {
-        return id_licencia;
+        return idlicencia;
     }
 
 }
