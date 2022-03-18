@@ -16,10 +16,10 @@ public class Persona {
     private long id_persona;
 
     @Column(name = "razon_social", nullable = false, length = 50)
-    private String razon_social;
+    private String razonSocial;
 
     @Column(name = "numero_documento", nullable = false, length = 11)
-    private String numero_documento;
+    private String numeroDocumento;
 
     @Column(name = "direccion", nullable = false, length = 30)
     private String direccion;

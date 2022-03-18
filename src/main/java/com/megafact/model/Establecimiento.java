@@ -38,6 +38,10 @@ public class Establecimiento {
     @Column(name = "zona" , nullable = false,length = 40)
     private String zona;
 
+    @OneToOne
+    @Column(name = "empresa",nullable = false,length = 11)
+    private Empresa empresa;
+
 
 
 
