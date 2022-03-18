@@ -32,7 +32,7 @@ public class Licencia {
      private LicenciaRequisito licenciaRequisito;
 
     public Long getIdLicencia() {
-        return null;
+        return id_licencia;
     }
 
 }
