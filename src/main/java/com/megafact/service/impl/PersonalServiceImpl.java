@@ -16,7 +16,7 @@ public class PersonalServiceImpl implements IPersonalService {
 
     @Override
     public List<Personal> listar() {
-        return dao.findAll();
+        return dao.findAll();//ll
     }
 
     @Override
