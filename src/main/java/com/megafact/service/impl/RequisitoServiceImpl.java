@@ -17,4 +17,20 @@ public class RequisitoServiceImpl implements IRequisitoService {
     public List<Requisito> listar() {
         return dao.findAll();
     }
+
+    @Override
+    public Requisito listarId(Long idRequisito){return dao.findById(idRequisito).get();}
+
+    @Override
+    public Requisito registrar(Requisito requisito){return dao.save(requisito);}
+
+    @Override
+    public Requisito modificar(Requisito requisito){return dao.save(requisito);}
+
+    @Override
+    public void eliminar(Long idRequisito)  {
+        dao.deleteById(idRequisito);}
+
+
+
 }
