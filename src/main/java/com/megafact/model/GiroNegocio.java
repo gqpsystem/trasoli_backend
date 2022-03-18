@@ -10,10 +10,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "giro_negocio")
 public class GiroNegocio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
+    private Long idGiroNegocio;
 
 }
