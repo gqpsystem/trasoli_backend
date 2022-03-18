@@ -32,5 +32,5 @@ public class Persona {
 
     @OneToOne
     @JoinColumn(name = "id_tipo_documento", nullable = false)
-    private TipoDocumento tipoDocumento;
+    private TipoDocumento tipoDocumento;//ll
 }
