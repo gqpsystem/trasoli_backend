@@ -18,4 +18,5 @@ public class PersonalServiceImpl implements IPersonalService {
     public List<Personal> listar() {
         return dao.findAll();
     }
+
 }
