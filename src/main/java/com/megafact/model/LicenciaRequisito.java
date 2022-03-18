@@ -26,5 +26,4 @@ public class LicenciaRequisito {
     @JoinColumn(name = "id_requisito", nullable = false)
     private Requisito requisito;
 
-
 }
