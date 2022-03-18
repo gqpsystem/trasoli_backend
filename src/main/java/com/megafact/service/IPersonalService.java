@@ -13,10 +13,10 @@ public interface IPersonalService {
 
     Personal crearPersonal(Personal personal);
 
-    Optional<Personal> mostrarPersonalPorId(long id);
+    Personal mostrarPersonalPorId(long idPersonal);
 
-    Personal actualizarPersonal(Personal actPersonal);
+    Personal actualizarPersonal(Personal personal);
 
-    void eliminarPersonal(long id);
+    void eliminarPersonal(Personal personal);
 
 }
