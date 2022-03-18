@@ -14,12 +14,12 @@ import javax.persistence.*;
 public class RepresentanteLegal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idRepresentanteLegal;
+    private Long idRepresentanteLegal;
 
     @Column(name = "num_partida", length = 50)
-    String num_partida;
+    private String num_partida;
 
     @OneToOne
             @JoinColumn(name = "id_persona", nullable = false )
-    Persona persona;
+    private Persona persona;
 }
