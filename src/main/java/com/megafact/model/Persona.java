@@ -29,4 +29,8 @@ public class Persona {
 
     @Column(name = "tel_movil", nullable = false, length = 9)
     private String tel_movil;
+
+    @OneToOne
+    @JoinColumn(name = "id_tipo_documento", nullable = false)
+    private TipoDocumento tipoDocumento;
 }
