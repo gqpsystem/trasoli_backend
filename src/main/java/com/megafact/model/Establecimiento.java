@@ -39,7 +39,7 @@ public class Establecimiento {
     private String zona;
 
     @OneToOne
-    @Column(name = "empresa",nullable = false,length = 11)
+    @JoinColumn(name = "id_empresa",nullable = false)
     private Empresa empresa;
 
 
