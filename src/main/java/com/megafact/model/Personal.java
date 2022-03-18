@@ -13,6 +13,7 @@ public class Personal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPersona", length = 10)
     private Long idPersonal;
 
     @OneToOne

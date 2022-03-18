@@ -22,12 +22,13 @@ public class PersonalController {
         return "{ \"todoOk\" : true }";
     } */
 
+    @GetMapping("/lista")
     public List<Personal> listar(){
         return service.listar();
     }
 
     @PostMapping("/crear")
-    public Personal crearP(@RequestBody Personal personal){
+    public Personal crearPersonal(@RequestBody Personal personal){
         return service.crearPersonal(personal);
     }
 
