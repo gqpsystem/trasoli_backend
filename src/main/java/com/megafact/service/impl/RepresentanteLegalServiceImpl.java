@@ -6,7 +6,9 @@ import com.megafact.service.IRepresentanteLegalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RepresentanteLegalServiceImpl implements IRepresentanteLegalService {
@@ -20,8 +22,8 @@ public class RepresentanteLegalServiceImpl implements IRepresentanteLegalService
     }
 
     @Override
-    public RepresentanteLegal listarId(Long idRepresentanteLegal) {
-        return dao.findById(idRepresentanteLegal).get();
+    public Optional<RepresentanteLegal> listarId(Long idRepresentanteLegal) {
+        return dao.findById(idRepresentanteLegal);
     }
 
     @Override
@@ -35,7 +37,17 @@ public class RepresentanteLegalServiceImpl implements IRepresentanteLegalService
     }
 
     @Override
-    public void eliminar(Long idRepresentanteLegal) {
-        dao.deleteById(idRepresentanteLegal);
+    public ArrayList<RepresentanteLegal> obtenerPorNumPartida(String num_partida) {
+        return dao.findByNum_partida(num_partida);
+    }
+
+    @Override
+    public boolean eliminar(Long idRepresentanteLegal) {
+        try {
+            dao.deleteById(idRepresentanteLegal);
+            return true;
+        } catch(Exception err){
+            return false;
+        }
     }
 }
