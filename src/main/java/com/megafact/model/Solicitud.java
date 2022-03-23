@@ -25,7 +25,7 @@ public class Solicitud {
     @Column(name = "estado",nullable = false)
     private boolean estado;
 
-    @Column(name = "asunto",nullable = false,length = 50)
+    @Column(name = "asunto",nullable = false,length = 250)
     private String asunto;
 
     @ManyToOne

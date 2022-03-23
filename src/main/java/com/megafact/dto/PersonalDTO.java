@@ -10,6 +10,6 @@ import lombok.Setter;
 public class PersonalDTO {
 
     private Persona persona;
-    private Personal personal;//gg
+    private Personal personal;//transportador de datos
 
 }

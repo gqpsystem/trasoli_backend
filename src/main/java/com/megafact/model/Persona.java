@@ -13,22 +13,22 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_persona;
+    private long idPersona;
 
     @Column(name = "razon_social", nullable = false, length = 50)
     private String razonSocial;
 
-    @Column(name = "numero_documento", nullable = false, length = 11)
+    @Column(name = "numeroDocumento", nullable = false, length = 11)
     private String numeroDocumento;
 
-    @Column(name = "direccion", nullable = false, length = 30)
+    @Column(name = "direccion", nullable = false, length = 150)
     private String direccion;
 
-    @Column(name = "correo", nullable = false, length = 30)
+    @Column(name = "correo", nullable = false, length = 100)
     private String correo;
 
-    @Column(name = "tel_movil", nullable = false, length = 9)
-    private String tel_movil;
+    @Column(name = "telefoMovil", nullable = false, length = 21)
+    private String telefoMovil;
 
     @OneToOne
     @JoinColumn(name = "id_tipo_documento", nullable = false)

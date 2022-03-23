@@ -7,20 +7,18 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity(
-        name = "representante_legal"
-)
-
+@Entity
+@Table(name = "representante_legal")
 public class RepresentanteLegal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRepresentanteLegal;
 
-    @Column(name = "num_partida", length = 50)
-    private String num_partida;
+    @Column(name = "numero_partida", nullable = true, length = 50)
+    private String numeroPartida;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "id_persona", nullable = false )
+    @OneToOne
+    @JoinColumn(name = "id_persona", nullable = false)
     private Persona persona;
 }

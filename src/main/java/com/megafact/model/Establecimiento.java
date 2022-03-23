@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "establecimiento")
 public class Establecimiento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEstablecimiento;
@@ -20,10 +21,10 @@ public class Establecimiento {
     @Column(name = "nombre_establecimiento", nullable = false,length = 100)
     private String nombreEstablecimiento;
 
-    @Column(name = "telefono", nullable = false,length = 9)
+    @Column(name = "telefono", nullable = false,length = 50)
     private String telefono;
 
-    @Column(name = "direccion", nullable = false,length = 60)
+    @Column(name = "direccion", nullable = false,length = 100)
     private String direccion;
 
     @Column(name = "departamento" , nullable = false,length = 50)
@@ -38,11 +39,8 @@ public class Establecimiento {
     @Column(name = "zona" , nullable = false,length = 40)
     private String zona;
 
-    @OneToOne
-    @JoinColumn(name = "id_empresa",nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_empresa", nullable = false)
     private Empresa empresa;
-
-
-
 
 }

@@ -34,6 +34,10 @@ public class Empresa {
     private Long id_representante;
 
     @OneToOne
+    @JoinColumn(name = "id_representante_legal", nullable = false)
+    private RepresentanteLegal representanteLegal;
+
+    @ManyToOne
     @JoinColumn(name = "id_giro_negocio", nullable = false)
     private GiroNegocio giroNegocio;
 
