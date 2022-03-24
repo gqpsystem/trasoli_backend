@@ -49,7 +49,6 @@ public class TipoDocumentoController {
 
     }
 
-
     @PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> registrar(@RequestBody TipoDocumento tipoDocumentos) {
         try {
