@@ -45,14 +45,16 @@ public class PersonalController {
     }
 
    @PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> registrar(@RequestBody PersonalDTO rep) {
-        Persona persona = personaService.registrar(rep.getPersona());
-        rep.getPersonal().setPersona(persona);
-        Personal personal = service.crearPersonal(rep.getPersonal());
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(personal.getIdPersonal()).toUri();
-        return ResponseEntity.created(location).build();
-    }
+    public ResponseEntity<Object> registrar(@RequestBody PersonalDTO rep) {
 
+       try {
+           Persona persona = personaService.registrar(rep.getPersona());
+           rep.getPersonal().setPersona(persona);
+           Personal personal = service.crearPersonal(rep.getPersonal());
+           return new ResponseEntity<>(personal, HttpStatus.OK);
+       } catch (Exception e) {
+           return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+       }
+    }
 
 }

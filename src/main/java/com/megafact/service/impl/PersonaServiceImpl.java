@@ -14,7 +14,6 @@ public class PersonaServiceImpl implements IPersonaService {
     @Autowired
     private IPersonaDAO dao;
 
-
     @Override
     public Persona registrar(Persona persona) {
         return dao.save(persona);
