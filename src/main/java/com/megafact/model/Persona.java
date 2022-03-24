@@ -15,7 +15,7 @@ public class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPersona;
 
-    @Column(name = "razon_social", nullable = false, length = 50)
+    @Column(name = "razon_social", nullable = false, length = 150)
     private String razonSocial;
 
     @Column(name = "numeroDocumento", nullable = false, length = 11)
@@ -27,7 +27,7 @@ public class Persona {
     @Column(name = "correo", nullable = false, length = 100)
     private String correo;
 
-    @Column(name = "telefoMovil", nullable = false, length = 21)
+    @Column(name = "telefoMovil", nullable = false, length = 22)
     private String telefoMovil;
 
     @OneToOne

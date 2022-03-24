@@ -14,13 +14,13 @@ public class Solicitud {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_solicitud;
+    private long idSolicitud;
 
     @Column(name = "num_expediente",nullable = false,length = 10)
-    private String num_expediente;
+    private String numExpediente;
 
     @Column(name = "fecha_recepcion",nullable = false)
-    private Date fecha_recepcion;
+    private Date fechaRecepcion;
 
     @Column(name = "estado",nullable = false)
     private boolean estado;
