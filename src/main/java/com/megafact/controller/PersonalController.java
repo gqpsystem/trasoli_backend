@@ -44,6 +44,7 @@ public class PersonalController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+
    @PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> registrar(@RequestBody PersonalDTO rep) {
 
