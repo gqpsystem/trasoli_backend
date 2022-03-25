@@ -104,14 +104,6 @@ public class PersonalController {
         }
     }
 
-    @PostMapping(value = "/registrar")
-    public ResponseEntity<?> add(@RequestBody @Validated PersonalDTO rep, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(bindingResult.getAllErrors());
-        }
-        Persona persona = personaService.registrar(rep.getPersona());
-        rep.getPersonal().setPersona(persona);
-        return ResponseEntity.ok(service.crearPersonal(rep.getPersonal()));
-    }
+
 
 }
