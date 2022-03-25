@@ -3,14 +3,17 @@ package com.megafact.service;
 import com.megafact.model.Personal;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IPersonalService {
 
     List<Personal> listar();
 
-    Personal crearPersonal(Personal personal);
+    Optional<Personal> listId(Long idPersonal);
 
-    Personal mostrarPersonalPorId(long idPersonal);
+    Optional<Personal> listarPorId(Long idPersonal);
+
+    Personal crearPersonal(Personal personal);
 
     Personal actualizarPersonal(Personal personal);
 

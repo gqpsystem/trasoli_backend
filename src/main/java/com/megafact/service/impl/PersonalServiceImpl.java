@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonalServiceImpl implements IPersonalService {
@@ -20,13 +21,18 @@ public class PersonalServiceImpl implements IPersonalService {
     }
 
     @Override
+    public Optional<Personal> listId(Long idPersonal) {
+        return dao.findById(idPersonal);
+    }
+
+    @Override
     public Personal crearPersonal(Personal personal) {
         return dao.save(personal);
     }
 
     @Override
-    public Personal mostrarPersonalPorId(long idPersonal) {
-        return dao.findById(idPersonal).orElse(null);
+    public Optional<Personal> listarPorId(Long idPersonal) {
+        return dao.findById(idPersonal);
     }
 
     @Override
