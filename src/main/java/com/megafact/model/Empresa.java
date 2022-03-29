@@ -30,9 +30,6 @@ public class Empresa {
     @Column(name = "zonificacion", nullable = true, length = 100)
     private String zonificacion;
 
-    @Column(name = "id_representante", nullable = false, length = 15)
-    private Long id_representante;
-
     @OneToOne
     @JoinColumn(name = "id_representante_legal", nullable = false)
     private RepresentanteLegal representanteLegal;
