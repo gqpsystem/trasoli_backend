@@ -12,7 +12,7 @@ public interface IRepresentanteLegalService {
 
         RepresentanteLegal crearRepresentanteLegal(RepresentanteLegal representanteLegal);
 
-        Optional<RepresentanteLegal> mostrarRepresentanteLegalPorId(long idRepresentantelegal);
+        Optional<RepresentanteLegal> mostrarRepresentanteLegalPorId(Long idRepresentantelegal);
 
         RepresentanteLegal actualizarRepresentanteLegal(RepresentanteLegal representanteLegal);
 
