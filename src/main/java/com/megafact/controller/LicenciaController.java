@@ -36,6 +36,7 @@ public class LicenciaController {
     @GetMapping(value = "/listar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> listarId(@PathVariable("id") Long id) {
         try {
+            //revisar
             Licencia licencia = service.listarId(id);
             return new ResponseEntity<>(licencia, HttpStatus.OK);
         } catch (Exception e) {
