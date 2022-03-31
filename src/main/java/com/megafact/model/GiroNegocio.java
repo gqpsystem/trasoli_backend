@@ -18,7 +18,7 @@ public class GiroNegocio {
     @Column(name = "abrivatura", nullable = true, length = 20)
     private String abrivatura;
 
-    @Column(name = "descripcion", nullable = true, length = 20)
+    @Column(name = "descripcion", nullable = true, length = 200)
     private String descripcion;
 
     @Column(name = "cod_ciiu", nullable = true, length = 20)

@@ -27,7 +27,7 @@ public class RepresentanteLegalServiceImpl implements IRepresentanteLegalService
     }
 
     @Override
-    public Optional<RepresentanteLegal> mostrarRepresentanteLegalPorId(long idRepresentantelegal) {
+    public Optional<RepresentanteLegal> mostrarRepresentanteLegalPorId(Long idRepresentantelegal) {
         return iRepresentanteLegalDAO.findById(idRepresentantelegal);
     }
 
