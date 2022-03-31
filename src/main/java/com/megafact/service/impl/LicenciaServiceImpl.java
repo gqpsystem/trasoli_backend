@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LicenciaServiceImpl implements ILicenciaService {
@@ -21,11 +22,14 @@ public class LicenciaServiceImpl implements ILicenciaService {
 
     @Override
     public Licencia listarId(Long idLicencia) {
-        return dao.findById(idLicencia).get();
+        Optional<Licencia> obj=dao.findById(idLicencia);
+        //return dao.findById(idLicencia).get();
+        return obj.isPresent()? obj.get():new Licencia();
     }
 
     @Override
     public Licencia registrar(Licencia licencia) {
+        licencia.getLicenciaRequisitos().forEach(x->x.setLicencia(licencia));
         return dao.save(licencia);
     }
 

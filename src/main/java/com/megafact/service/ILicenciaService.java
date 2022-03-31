@@ -16,14 +16,4 @@ public interface ILicenciaService {
 
     void eliminar(Long idLicencia);
 
-
-/*
-    Licencia crearLicencia(Licencia licencia);
-
-    Licencia mostrarLicenciaPorId(long idLicencia);
-
-    Licencia actualizarLicencia(Licencia licencia);
-
-    void eliminarLicencia(Licencia licencia);*/
-
 }
