@@ -37,13 +37,14 @@ public class LicenciaController {
     public ResponseEntity<?> listarId(@PathVariable("id") Long id) {
         try {
             //revisar
-            Licencia licencia = service.listarId(id);
+            Licencia licencia = service.listarPorId(id);
             return new ResponseEntity<>(licencia, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
+
     @PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> registrar(@RequestBody Licencia licencias) {
         try {

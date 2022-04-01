@@ -48,23 +48,4 @@ public class EmpresaController {
         }
     }
 
-    @GetMapping( path = "/{id}")
-    public Optional<Empresa> obtenerEmpresaPorId(@PathVariable("id") Long id) {
-        return this.service.listarId(id);
-    }
-
-    @GetMapping("/queryRL")
-    public ArrayList<Empresa> obtenerEmpresaPorRL(@RequestParam("idRepresentanteLegal") Long idRepresentanteLegal){
-        return this.service.obtenerPorRL(idRepresentanteLegal);
-    }
-
-    @DeleteMapping( path = "/{id}")
-    public String eliminarPorId(@PathVariable("id") Long id){
-        boolean ok = this.service.eliminar(id);
-        if (ok){
-            return "Se eliminó la empresa con id " + id;
-        }else{
-            return "No pudo eliminar la empresa con id" + id;
-        }
-    }
 }

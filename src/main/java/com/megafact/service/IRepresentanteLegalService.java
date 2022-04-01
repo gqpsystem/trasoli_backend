@@ -6,18 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public interface IRepresentanteLegalService {
+public interface IRepresentanteLegalService extends ICRUD<RepresentanteLegal, Long> {
 
-        List<RepresentanteLegal> listar();
 
-        RepresentanteLegal crearRepresentanteLegal(RepresentanteLegal representanteLegal);
-
-        Optional<RepresentanteLegal> mostrarRepresentanteLegalPorId(Long idRepresentantelegal);
-
-        RepresentanteLegal actualizarRepresentanteLegal(RepresentanteLegal representanteLegal);
-
-        ArrayList<RepresentanteLegal> obtenerPorNumPartida(String num_partida);
-
-        boolean eliminarRepresentanteLegal(Long idRepresentanteLegal);
-
-    }
+}

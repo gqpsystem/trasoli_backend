@@ -1,18 +1,17 @@
 package com.megafact.service;
 
+import com.megafact.model.Establecimiento;
 import com.megafact.model.Solicitud;
 
 import java.util.List;
 
-public interface ISolicitudService {
+public interface ISolicitudService extends ICRUD<Solicitud,Long>{
 
-    List<Solicitud> listar();
+    //Establecimiento
+    //Representante Legal
+    //solicito Licencia
+    //registos
 
-    Solicitud crearSolicitud(Solicitud solicitud);
+    //Solicitud solicitudPorEstablecimiento(Establecimiento establecimiento);
 
-    Solicitud mostrarSolicitudPorId(long idSolicitud);
-
-    Solicitud actualizarSolicitud(Solicitud solicitud);
-
-    void eliminarSolicitud(Solicitud solicitud);
 }

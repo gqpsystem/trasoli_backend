@@ -4,16 +4,7 @@ import com.megafact.model.Licencia;
 
 import java.util.List;
 
-public interface ILicenciaService {
+public interface ILicenciaService extends ICRUD<Licencia,Long> {
 
-    List<Licencia> listar();
-
-    Licencia listarId(Long idLicencia);
-
-    Licencia registrar(Licencia licencia);
-
-    Licencia modificar(Licencia licencia);
-
-    void eliminar(Long idLicencia);
 
 }

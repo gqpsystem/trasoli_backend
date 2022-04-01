@@ -31,8 +31,7 @@ public class RepresentanteLegalController {
         return "{ \"Ok\" : true }";
     }
 
-    //@GetMapping(value = "/list-representante",produces = MediaType.APPLICATION_JSON_VALUE)
-    @GetMapping
+    @GetMapping(value = "/list-representante",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> listar() {
         List<RepresentanteLegal> list = new ArrayList<>();
         try {
@@ -44,23 +43,21 @@ public class RepresentanteLegalController {
     }
 
 
-    //@PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @PostMapping
+    @PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> registrar(@RequestBody RepresentanteLegalDTO rep) {
-
         try {
             Persona persona = personaService.registrar(rep.getPersona());
             rep.getRepresentanteLegal().setPersona(persona);
-            RepresentanteLegal representanteLegal = service.crearRepresentanteLegal(rep.getRepresentanteLegal());
+            RepresentanteLegal representanteLegal = service.registrar(rep.getRepresentanteLegal());
             return new ResponseEntity<>(representanteLegal, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping( path = "/{id}")
+    /*@GetMapping( path = "/{id}")
     public Optional<RepresentanteLegal> obtenerRepresentantePorId(@PathVariable("id") Long id) {
-        return this.service.mostrarRepresentanteLegalPorId(id);
+        return this.service.listarPorId(id);
     }
 
     @GetMapping("/query")
@@ -76,7 +73,7 @@ public class RepresentanteLegalController {
         }else{
             return "No pudo eliminar el representante con id" + id;
         }
-    }
+    }*/
 
 
 }

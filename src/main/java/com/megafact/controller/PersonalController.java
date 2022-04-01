@@ -53,42 +53,40 @@ public class PersonalController {
             String msg="el -> id "+id+" es invalido";
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(CustomResponse.builder().codigo(0).mensaje(msg).build());
         }
-        Optional<Personal> optional= service.listId(id);
-        if (optional.isPresent()) {
-            return  ResponseEntity.ok(service.listarPorId(id).get());
+        Personal optional= service.listarPorId(id);
+        if (optional!=null) {
+            return  ResponseEntity.ok(service.listarPorId(id));
         }else {
             return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
 
     }
 
-
-
-    @GetMapping(value = "/listar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> listarId(@PathVariable("id") Long id) {
-
-        if (id <= 0) {
-            String mgs="id -> "+id+" es invalido";
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(CustomResponse.builder().codigo(0).mensaje(mgs).build());
-        }
-        Optional<Personal> optionalPersonal = service.listarPorId(id);
-        //return  ResponseEntity.ok(service.listarPorId(id).get());
-
-        if (optionalPersonal.isPresent()) {
-            return ResponseEntity.ok(service.listarPorId(id).get());
-        } else {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        }
-
-        //validacion de documentos
-        /*if (!Objects.isNull(optionalPersonal)) {
-            if (optionalPersonal.isPresent()) {
-                return  ResponseEntity.ok(optionalPersonal.get());
-            }
-        }
-        return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        */
-    }
+//    @GetMapping(value = "/listar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<?> listarId(@PathVariable("id") Long id) {
+//
+//        if (id <= 0) {
+//            String mgs="id -> "+id+" es invalido";
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(CustomResponse.builder().codigo(0).mensaje(mgs).build());
+//        }
+//        Optional<Personal> optionalPersonal = service.listarPorId(id);
+//        //return  ResponseEntity.ok(service.listarPorId(id).get());
+//
+//        if (optionalPersonal.isPresent()) {
+//            return ResponseEntity.ok(service.listarPorId(id).get());
+//        } else {
+//            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//        }
+//
+//        //validacion de documentos
+//        /*if (!Objects.isNull(optionalPersonal)) {
+//            if (optionalPersonal.isPresent()) {
+//                return  ResponseEntity.ok(optionalPersonal.get());
+//            }
+//        }
+//        return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//        */
+//    }
 
 
     @PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -97,7 +95,7 @@ public class PersonalController {
         try {
             Persona persona = personaService.registrar(rep.getPersona());
             rep.getPersonal().setPersona(persona);
-            Personal personal = service.crearPersonal(rep.getPersonal());
+            Personal personal = service.registrar(rep.getPersonal());
             return new ResponseEntity<>(personal, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -111,7 +109,7 @@ public class PersonalController {
         }
         Persona persona = personaService.registrar(rep.getPersona());
         rep.getPersonal().setPersona(persona);
-        return ResponseEntity.ok(service.crearPersonal(rep.getPersonal()));
+        return ResponseEntity.ok(service.registrar(rep.getPersonal()));
     }
 
 }

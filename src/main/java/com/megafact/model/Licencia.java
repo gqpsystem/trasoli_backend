@@ -1,5 +1,6 @@
 package com.megafact.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
@@ -10,15 +11,14 @@ import java.util.List;
 import javax.persistence.*;
 
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 @Entity
 @Table(name = "licencia")
 public class Licencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_licencia", nullable = false, length = 11)
     private long idLicencia; //no acepta null
 
     @JsonSerialize(using = ToStringSerializer.class)
@@ -27,10 +27,40 @@ public class Licencia {
     @Column(name = "numero_resolucion", nullable = false, length = 50)
     private String numeroResolucion;
 
-    @OneToMany(mappedBy = "licencia", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<LicenciaRequisito> licenciaRequisitos;
+    @JsonIgnore
+//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="licencia")
+    @OneToMany(mappedBy = "licencia", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    private List<LicenciaRequisito> detalle;
 
+    public long getIdLicencia() {
+        return idLicencia;
+    }
 
+    public void setIdLicencia(long idLicencia) {
+        this.idLicencia = idLicencia;
+    }
 
+    public LocalDate getFechaEmision() {
+        return fechaEmision;
+    }
+
+    public void setFechaEmision(LocalDate fechaEmision) {
+        this.fechaEmision = fechaEmision;
+    }
+
+    public String getNumeroResolucion() {
+        return numeroResolucion;
+    }
+
+    public void setNumeroResolucion(String numeroResolucion) {
+        this.numeroResolucion = numeroResolucion;
+    }
+
+    public List<LicenciaRequisito> getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(List<LicenciaRequisito> detalle) {
+        this.detalle = detalle;
+    }
 }

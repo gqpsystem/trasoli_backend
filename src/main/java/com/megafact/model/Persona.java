@@ -21,8 +21,8 @@ public class Persona {
     @Column(name = "razon_social", nullable = false, length = 150)
     private String razonSocial;
 
-    @Min(value = 8,message = "Min 8")
-    @Max(value = 11,message = "Max 8")
+    //@Min(value = 8,message = "Min 8")
+    //@Max(value = 11,message = "Max 8")
     @Column(name = "numeroDocumento", nullable = false, length = 11)
     private String numeroDocumento;
 

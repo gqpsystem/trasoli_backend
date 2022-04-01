@@ -25,4 +25,11 @@ public class TipoDocumento {
     @Column(name = "denominacion", nullable = true, length = 50)
     private String denominacion;
 
+
+    //AUDT
+    @Column(name = "ip_maquina", nullable = true, length = 50)
+    private String ipMaquina;
+
+    //fechaRegistro , fechaModifica
+
 }

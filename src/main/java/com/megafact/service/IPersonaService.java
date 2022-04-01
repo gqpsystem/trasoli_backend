@@ -4,15 +4,6 @@ import com.megafact.model.Persona;
 
 import java.util.List;
 
-public interface IPersonaService {
+public interface IPersonaService extends ICRUD<Persona,Long> {
 
-    Persona registrar(Persona persona);
-
-    Persona modificar(Persona persona);
-
-    void eliminar(int idPersona);
-
-    Persona listarId(int idPersona);
-
-    List<Persona> listar();
 }

@@ -16,9 +16,5 @@ public class EstablecimientoController {
         return "{ \"todoOk\" : true }";
     }
 
-    @PostMapping(value = "/guardar")
-    public Establecimiento guardarEstablecimiento(@RequestBody Establecimiento establecimiento){
 
-        return establecimientoService.crearEstablecimiento(establecimiento);
-    }
 }

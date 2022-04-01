@@ -41,7 +41,7 @@ public class TipoDocumentoController {
     @GetMapping(value = "/listar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> listarId(@PathVariable("id") Long id) {
         try {
-            TipoDocumento tipoDocumento = service.listarId(id);
+            TipoDocumento tipoDocumento = service.listarPorId(id);
             return new ResponseEntity<>(tipoDocumento, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

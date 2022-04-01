@@ -4,17 +4,24 @@ import com.megafact.model.TipoDocumento;
 import com.megafact.repository.ITipoDocumentoDAO;
 import com.megafact.service.ITipoDocumentoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TipoDocumentoServiceImpl implements ITipoDocumentoService {
+public class TipoDocumentoServiceImpl extends CRUDImpl<TipoDocumento,Long> implements ITipoDocumentoService {
 
     @Autowired
     private ITipoDocumentoDAO dao;
 
     @Override
+    protected JpaRepository<TipoDocumento, Long> getDao() {
+        return dao;
+    }
+
+
+    /*@Override
     public List<TipoDocumento> listar() {
         return dao.findAll();
     }
@@ -37,5 +44,5 @@ public class TipoDocumentoServiceImpl implements ITipoDocumentoService {
     @Override
     public void eliminar(Long idTipoDocumento) {
         dao.deleteById(idTipoDocumento);
-    }
+    }*/
 }

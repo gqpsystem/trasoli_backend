@@ -4,38 +4,19 @@ import com.megafact.model.Persona;
 import com.megafact.repository.IPersonaDAO;
 import com.megafact.service.IPersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PersonaServiceImpl implements IPersonaService {
+public class PersonaServiceImpl extends CRUDImpl<Persona,Long>  implements IPersonaService {
 
     @Autowired
     private IPersonaDAO dao;
 
     @Override
-    public Persona registrar(Persona persona) {
-        return dao.save(persona);
-    }
-
-    @Override
-    public Persona modificar(Persona persona) {
-        return null;
-    }
-
-    @Override
-    public void eliminar(int idPersona) {
-
-    }
-
-    @Override
-    public Persona listarId(int idPersona) {
-        return null;
-    }
-
-    @Override
-    public List<Persona> listar() {
-        return null;
+    protected JpaRepository<Persona, Long> getDao() {
+        return dao;
     }
 }
